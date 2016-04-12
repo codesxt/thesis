@@ -1,0 +1,12 @@
+* Samplear parámetros theta de una dsitribución propuesta (rangos conocidos de escala, etc.)
+  theta = [h, sigma_x, sigma_y], h: escala, sigma_x: stddev altura real, sigma_y: stddev mediciones (suma stddev métrico y de SLAM)
+(Generar sinusoide con ruido para altura real)
+* x_k ~ p(x_k | x_{k-1}, theta): Se estima x_k (altura real) usando un modelo lineal.
+* y_k ~ p(y_k | x_k, theta): Función de observación de la altura.
+
+Función de observación:
+x_k = [h_1  0 ] [y_k_1] + N(0, sigma_y)
+      [ 0  h_2] [y_k_1]
+
+1. Generar los datos con el modelo
+2. Asumir parámetros desconocidos para aplicar EM
